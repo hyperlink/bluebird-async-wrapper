@@ -1,0 +1,35 @@
+{
+  "name": "bluebird-async-wrap",
+  "version": "0.1.0",
+  "description": "Help migrate bluebird from async/await",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Xiaoxin Lu <javascript@yahoo.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "bluebird": "^3.5.1",
+    "mocha": "^5.1.1"
+  },
+  "peerDependencies": {
+    "bluebird": "^3.5.1"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyperlink/bluebird-async-wrapper.git"
+  },
+  "keywords": [
+    "bluebird",
+    "async/await",
+    "promises"
+  ],
+  "bugs": {
+    "url": "https://github.com/hyperlink/bluebird-async-wrapper/issues"
+  },
+  "homepage": "https://github.com/hyperlink/bluebird-async-wrapper#readme"
+}
