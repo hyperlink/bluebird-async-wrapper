@@ -6,18 +6,23 @@ function isAsync (fn) {
   return fn.constructor.name === 'AsyncFunction';
 }
 
-module.exports = function bluebirdify (myClass, ignoreMethods = ['constructor']) {
-  const properties = Object.getOwnPropertyNames(myClass.prototype);
+function bluebirdify (object, ignoreMethods) {
+  const properties = Object.getOwnPropertyNames(object);
   for (const property of properties) {
     if (ignoreMethods.includes(property)) {
       continue;
     }
 
-    const originalMethod = myClass.prototype[property];
-    if (isAsync(originalMethod)) {
-      myClass.prototype[property] = function () {
+    const originalMethod = object[property];
+    if (typeof originalMethod === 'function' && isAsync(originalMethod)) {
+      object[property] = function () {
         return Bluebird.resolve(originalMethod.apply(this, arguments));
       };
     }
   }
+}
+
+module.exports = function (myClass, ignoreMethods = ['constructor', 'length', 'name', 'prototype']) {
+  bluebirdify(myClass, ignoreMethods);
+  bluebirdify(myClass.prototype, ignoreMethods);
 };
