@@ -1,5 +1,7 @@
 # Bluebird Async Wrapper
 
+[![Build Status](https://travis-ci.org/hyperlink/bluebird-async-wrapper.svg?branch=master)](https://travis-ci.org/hyperlink/bluebird-async-wrapper)
+
 Helper to migrate from Bluebird to async/await by wrapping each async method with bluebird Resolve
 
 ## Install
@@ -24,4 +26,8 @@ class Test {
 }
 
 bluebirdify(Test);
+
+const test = new Test();
+
+test.asyncMethod().tap( v => console.log('this works!'));
 ```
