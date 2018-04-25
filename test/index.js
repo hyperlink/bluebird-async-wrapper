@@ -25,6 +25,11 @@ describe('Bluebird Async Wrap', function () {
     assert(await Test.asyncMethod());
   });
 
+  it('should return the modified class', function () {
+    class Test {}
+    assert.strictEqual(bluebirdify(Test), Test);
+  });
+
   it('should wrap async methods in a bluebird Resolve', async function () {
     class Test {
       async asyncMethod () {

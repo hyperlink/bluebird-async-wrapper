@@ -25,4 +25,5 @@ function bluebirdify (object, ignoreMethods) {
 module.exports = function (myClass, ignoreMethods = ['constructor', 'length', 'name', 'prototype']) {
   bluebirdify(myClass, ignoreMethods);
   bluebirdify(myClass.prototype, ignoreMethods);
+  return myClass;
 };
